@@ -1,0 +1,40 @@
+.tweetModal {
+    padding-bottom: 10px;
+    border-bottom: 8px solid var(--twitter-background);
+    padding-right: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    padding: 20px;
+    display: flex;
+}
+
+.input > input {
+    outline: none;
+    border: none;
+    flex: 1;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.inputImage {
+    border: none;
+    padding: 20px;
+}
+
+.tweetButton {
+    background-color: var(--twitter-color) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 900 !important;
+    text-transform: inherit !important;
+    border-radius: 30px !important;
+    height: 50px !important;
+    margin-top: 20px !important; 
+    margin-left: auto !important;
+}
