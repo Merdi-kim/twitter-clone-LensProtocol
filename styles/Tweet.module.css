@@ -19,6 +19,22 @@
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    margin-right: 2rem;
+}
+
+.footer>section {
+    display: flex;
+    align-items: center; 
+}
+
+.footer>section:hover {
+    color: var(--twitter-color);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.footer>section>span {
+    margin-left: 0.5rem;
 }
 
 .headerDescription {

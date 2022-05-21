@@ -13,7 +13,7 @@ function Feed() {
     displayName:"merkim.eth",
     username:"heyo",
     verified:true,
-    text:"wagmi", 
+    text:"wagmi frens", 
     avatar:"vjfs" ,
     image:"baivboe"
 

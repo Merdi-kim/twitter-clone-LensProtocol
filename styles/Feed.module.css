@@ -1,5 +1,5 @@
 .feed {
-    flex: 0.4;
+    flex: 0.5;
     border-right: 1px solid var(--twitter-background);
     min-width: fit-content;
     overflow-y: scroll;
@@ -23,4 +23,16 @@
 .header > h2 {
     font-size: 20px;
     font-weight: 800;
+}
+
+@media screen and (max-width:1024px) {
+    .feed {
+        flex: 0.7;
+    }
+}
+
+@media screen and (max-width:760px) {
+    .feed {
+        flex: 1;
+    }
 }

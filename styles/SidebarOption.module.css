@@ -11,22 +11,28 @@
     transition: color 100ms ease-out;
 }
 
-.sidebarOption > .MuiSvgIcon-root {
-    padding: 20px;
+.icon {
+    padding: 0px 20px;
 }
 
+
 .sidebarOption > h2 {
-    font-weight: 800;
+    font-weight: 700;
     font-size: 20px;
-    margin-right: 20px;
 }
 
 .active {
     color: var(--twitter-color);
 }
 
-@media screen and (max-width:770px) {
-    .sidebarOption > h2 {
+@media screen and (max-width:760px) {
+    .sidebarOption>h2 {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .sidebarOption {
         display: none;
     }
 }

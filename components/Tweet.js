@@ -1,6 +1,6 @@
 import React, {forwardRef} from 'react'
 import { Avatar } from '@mui/material'
-import VerifiedUserIcon from '@mui/icons-material/VerifiedUser'
+//import VerifiedUserIcon from '@mui/icons-material/VerifiedUser'
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline'
 import RepeatIcon from '@mui/icons-material/Repeat'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
@@ -24,7 +24,7 @@ const Tweet = forwardRef(({displayName,
                 <div className={styles.header}>
                     <div className={styles.headerText}>
                         <h3>
-                            {displayName} {""} <span className={styles.headerSpecial}>{verified && <VerifiedUserIcon className={styles.badge}/>}@{username}</span> 
+                            {displayName} {""} <span className={styles.headerSpecial}>{verified && <img href='https://banner2.cleanpng.com/20180803/vua/kisspng-verified-badge-symbol-computer-icons-twitter-verified-logo-twitter-sticker-by-kalfin-setiawan-5b6449b0738359.5764164215332991204732.jpg' className={styles.badge}/>}@{username}</span> 
                         </h3>
                         <div className={styles.headerDescription}>
                             <p>{text}</p>
@@ -33,10 +33,10 @@ const Tweet = forwardRef(({displayName,
                 </div>
                 <img src={image} alt="" />
                 <div className={styles.footer}>
-                 <ChatBubbleOutlineIcon fontSize='small'/>
-                 <RepeatIcon fontSize='small'/>
-                 <FavoriteBorderIcon fontSize='small'/>
-                 <PublishIcon fontSize='small'/>
+                  <section><ChatBubbleOutlineIcon fontSize='small'/> <span>30</span> </section>
+                   <section><RepeatIcon fontSize='small'/> <span>55</span></section>
+                  <section><FavoriteBorderIcon fontSize='small'/> <span>22</span></section>
+                  <section><PublishIcon fontSize='small'/></section>
                </div>
             </div>
 

@@ -1,11 +1,11 @@
 import SidebarOption from '../components/SidebarOption'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import HomeIcon from '@mui/icons-material/Home'
-import SearchIcon from '@mui/icons-material/Search'
+import TagIcon from '@mui/icons-material/Tag';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'
 import MailOutlineIcon from '@mui/icons-material/MailOutline'
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
-import ListAltIcon from '@mui/icons-material/ListAlt'
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import { Button } from '@mui/material'
@@ -16,11 +16,11 @@ function Sidebar() {
         <div className={styles.sidebar}>
             <TwitterIcon className={styles.twitterIcon}/>
             <SidebarOption active text='Home' Icon ={HomeIcon}/>
-            <SidebarOption text='Explore' Icon = {SearchIcon}/>
+            <SidebarOption text='Explore' Icon = {TagIcon}/>
+            <SidebarOption text='Communities' Icon ={PeopleAltIcon}/>
             <SidebarOption text='Notifications' Icon ={NotificationsNoneIcon}/>
             <SidebarOption text='Messages' Icon ={MailOutlineIcon}/>
             <SidebarOption text='Bookmarks' Icon = {BookmarkBorderIcon}/>
-            <SidebarOption text='Lists' Icon ={ListAltIcon}/>
             <SidebarOption text='Profile' Icon ={PermIdentityIcon}/>
             <SidebarOption text='More' Icon={MoreHorizIcon}/>
 

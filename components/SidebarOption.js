@@ -4,7 +4,7 @@ function SidebarOption({active,text, Icon}) {
 
   return (
     <div className={`${styles.sidebarOption} ${active && styles.active}`}>
-      <Icon/>
+      <span className={styles.icon}><Icon/></span>
       <h2>{text}</h2>
     </div>
   )
