@@ -36,16 +36,18 @@ function TweetModal() {
       <form onSubmit={postPost}>
         <div className={styles.input}>
           <Avatar/>
-          <input type="text" ref ={text} placeholder="What's happening?" required />
+          <textarea ref ={text} placeholder="What's happening?" required />
         </div>
 
+        <section className={styles.bottom}>
         <input 
-          type="text" 
+          type="file" 
           className={styles.inputImage}
           ref={postUrl}
-          placeholder='Optional: Enter image URL'
         />
         <Button className={styles.tweetButton} type='submit' >Tweet</Button>
+        </section>
+
       </form>
     </div>
   )
