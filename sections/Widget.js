@@ -17,7 +17,7 @@ function Widget() {
                  sourceType="profile"
                  screenName="KimMerdi"
                  options={{height: 400}}
-/>
+                />
             </div>
 
             

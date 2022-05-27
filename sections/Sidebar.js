@@ -9,9 +9,14 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import { Button } from '@mui/material'
+import { createProfile } from '../lens/queries/createProfile'
 import styles from '../styles/Sidebar.module.css'
 
 function Sidebar() {
+    const connectWallet = async() => {
+        const ff = await createProfile()
+        console.log(ff)
+    }
     return (
         <div className={styles.sidebar}>
             <TwitterIcon className={styles.twitterIcon}/>
@@ -23,8 +28,7 @@ function Sidebar() {
             <SidebarOption text='Bookmarks' Icon = {BookmarkBorderIcon}/>
             <SidebarOption text='Profile' Icon ={PermIdentityIcon}/>
             <SidebarOption text='More' Icon={MoreHorizIcon}/>
-
-            <Button variant='outlined' className={styles.tweet} fullWidth>Tweet</Button>
+            <Button variant='outlined' className={styles.tweet} fullWidth onClick={connectWallet}>Connect wallet</Button>
 
         </div>
     )

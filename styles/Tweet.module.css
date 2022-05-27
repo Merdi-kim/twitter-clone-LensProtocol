@@ -47,11 +47,6 @@
     margin-bottom: 5px;
 }
 
-.badge {
-    font-size: 14px !important;
-    color: var(--twitter-color);
-}
-
 .headerSpecial {
     font-weight: 600;
     font-size: 12px;
