@@ -19,17 +19,16 @@ function Sidebar() {
     }
     return (
         <div className={styles.sidebar}>
-            <TwitterIcon className={styles.twitterIcon}/>
-            <SidebarOption active text='Home' Icon ={HomeIcon}/>
-            <SidebarOption text='Explore' Icon = {TagIcon}/>
-            <SidebarOption text='Communities' Icon ={PeopleAltIcon}/>
-            <SidebarOption text='Notifications' Icon ={NotificationsNoneIcon}/>
-            <SidebarOption text='Messages' Icon ={MailOutlineIcon}/>
-            <SidebarOption text='Bookmarks' Icon = {BookmarkBorderIcon}/>
-            <SidebarOption text='Profile' Icon ={PermIdentityIcon}/>
-            <SidebarOption text='More' Icon={MoreHorizIcon}/>
+            <TwitterIcon className={styles.twitterIcon} link={''}/>
+            <SidebarOption active text='Home' Icon ={HomeIcon} link={''}/>
+            <SidebarOption text='Explore' Icon = {TagIcon} link={'/search'}/>
+            <SidebarOption text='Communities' Icon ={PeopleAltIcon} link={''}/>
+            <SidebarOption text='Notifications' Icon ={NotificationsNoneIcon} link={''}/>
+            <SidebarOption text='Messages' Icon ={MailOutlineIcon} link={''}/>
+            <SidebarOption text='Bookmarks' Icon = {BookmarkBorderIcon} link={''}/>
+            <SidebarOption text='Profile' Icon ={PermIdentityIcon} link={'/profile/jj'}/>
+            <SidebarOption text='More' Icon={MoreHorizIcon} link={''}/>
             <Button variant='outlined' className={styles.tweet} fullWidth onClick={connectWallet}>Connect wallet</Button>
-
         </div>
     )
 }
