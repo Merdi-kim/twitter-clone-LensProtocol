@@ -21,7 +21,8 @@
     "react-dom": "18.1.0",
     "react-flip-move": "^3.0.4",
     "react-twitter-embed": "^4.0.4",
-    "wagmi": "^0.4.6"
+    "wagmi": "^0.4.6",
+    "web3.storage": "^4.2.0"
   },
   "devDependencies": {
     "eslint": "8.15.0",

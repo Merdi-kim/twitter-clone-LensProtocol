@@ -1,4 +1,6 @@
-import {useRef} from 'react'
+import {useEffect, useRef} from 'react'
+import { useAccount } from 'wagmi'
+import { getDefaultProfile } from '../lens/requests/profile'
 import { Avatar, Button } from '@mui/material'
 import styles from '../styles/TweetModal.module.css'
 
@@ -7,29 +9,20 @@ function TweetModal() {
 
   const text = useRef()
   const postUrl= useRef()
+  const { data } = useAccount()
 
     
   const postPost = (e) => {
-
-    e.preventDefault()
-      /*const tweet = text.current.value
-      const url = postUrl.current.value
-      const post = {
-          displayName:'Merkim dev',
-          username:'KimMerdi',
-          verified: false,
-          text:tweet,
-          avatar:'kim',
-          image:url
-
-      }
-
-      db.collection('posts').add(post)
-
-      text.current.value = ''
-      postUrl.current.value = ''*/
-
   }
+
+  const getProfile = () => {
+    //const data = getDefaultProfile()
+    console.log('get profile')
+  }
+
+  useEffect(() => {
+    getProfile()
+  }, [])
 
   return (
     <div className={styles.tweetModal}>
