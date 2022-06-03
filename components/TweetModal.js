@@ -9,20 +9,19 @@ function TweetModal() {
 
   const text = useRef()
   const postUrl= useRef()
-  const { data } = useAccount()
-
+  const { data:userAddress } = useAccount()
     
   const postPost = (e) => {
   }
 
-  const getProfile = () => {
-    //const data = getDefaultProfile()
-    console.log('get profile')
+  const getProfile = async() => {
+    const data = await getDefaultProfile(userAddress?.address)
+    console.log(data)
   }
 
   useEffect(() => {
     getProfile()
-  }, [])
+  }, [userAddress])
 
   return (
     <div className={styles.tweetModal}>

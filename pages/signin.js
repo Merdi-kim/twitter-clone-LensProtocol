@@ -18,11 +18,6 @@ function Signin() {
   const {data : accountData} = useAccount()
   const { data : signer, isError, isLoading } = useSigner()
 
-  const signText = (text) => {
-    const ethersProvider = new ethers.providers.Web3Provider(window.ethereum).getSigner()
-    return ethersProvider.signMessage(text);
-  }
-
   const createProfileHandler = async(e) => {
     e.preventDefault()
     if(file.length === 0 || !userName) return 
@@ -61,11 +56,6 @@ function Signin() {
         
         { accountData?.address && <button type='submit'>submit</button> } 
         { !accountData?.address && <ConnectButton/> }
-
-        
-        
-        
-        
       </form>
     </div>
   )
