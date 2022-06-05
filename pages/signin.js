@@ -11,6 +11,7 @@ import styles from '../styles/Signin.module.css'
 function Signin() {
 
   const [userName, setUserName] = useState('')
+  const [userBio, setUserBio] = useState('')
   const [fileUrl, setFileUrl] = useState('')
   const [file, setFile] = useState()
   const apiKey = process.env.NEXT_PUBLIC_STORAGE_KEY
@@ -30,13 +31,20 @@ function Signin() {
     const imgLink = `https://ipfs.io/ipfs/${cid}`    
     const createProfileRequest = { 
       handle: userName,
+      bio: userBio,
       profilePictureUri: imgLink,   
       followModule: {
         freeFollowModule: true
       }
     }
-    await createProfile(createProfileRequest)
-    Router.push('/')
+    try {
+      await createProfile(createProfileRequest)
+      console.log('second hi')
+      Router.push('/')
+    }
+    catch (err) {
+      console.log(err)
+    }
   }
 
   const uploadImage = (e) => {
@@ -51,6 +59,7 @@ function Signin() {
     <div className={styles.new_account}>
       <form onSubmit={createProfileHandler}>
         <input placeholder='Username...' type="text" onChange={(e) => setUserName(e.target.value)} />
+        <textarea placeholder='Your bio...' cols="30" rows="4" onChange={(e) => setUserBio(e.target.value)}></textarea>
         <input type="file" onChange={uploadImage} />
         { fileUrl && <img src={fileUrl} alt="" />}
         
