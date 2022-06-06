@@ -6,8 +6,6 @@ import { Web3Storage } from 'web3.storage';
 import { generateChallenge, authenticate, createProfile } from '../lens/requests/profile'
 import styles from '../styles/Signin.module.css'
 
-
-
 function Signin() {
 
   const [userName, setUserName] = useState('')

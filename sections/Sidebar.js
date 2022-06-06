@@ -29,7 +29,7 @@ function Sidebar() {
             <SidebarOption text='Notifications' Icon ={NotificationsNoneIcon} link={'/'}/>
             <SidebarOption text='Messages' Icon ={MailOutlineIcon} link={'/'}/>
             <SidebarOption text='Bookmarks' Icon = {BookmarkBorderIcon} link={'/'}/>
-            <SidebarOption text='Profile' Icon ={PermIdentityIcon} link={'/profile/jj'}/>
+            <SidebarOption text='Profile' Icon ={PermIdentityIcon} link={'/profile'}/>
             <SidebarOption text='More' Icon={MoreHorizIcon} link={'/'}/>
             <Button variant='outlined' className={styles.tweet} fullWidth onClick={goToSignin}>Sign in</Button>
         </div>
