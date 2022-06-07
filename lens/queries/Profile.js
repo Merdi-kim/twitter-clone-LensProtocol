@@ -15,7 +15,7 @@ export const CREATE_PROFILE = `
 
 export const GET_PROFILES = `
 query Profiles {
-  profiles(request: { ownedBy: ["0x8bEdd25C40872b18EAc853E9ee221F42804e3b72"], limit: 10 }) {
+  profiles(request: { ownedBy: ["0x70997970C51812dc3A010C7d01b50e0d17dc79C8"], limit: 10 }) {
     items {
       id
       name

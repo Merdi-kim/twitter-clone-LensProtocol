@@ -8,17 +8,13 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
-import { Button } from '@mui/material';
 import { useAccount } from 'wagmi'
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 import styles from '../styles/Sidebar.module.css'
-import { useEffect } from 'react';
-import Router from 'next/router';
 
 function Sidebar() {
 
-    const goToSignin = () => {
-        Router.push('/signin')
-    }
+    const { data:userAddress } = useAccount()
 
     return (
         <div className={styles.sidebar}>
@@ -31,7 +27,7 @@ function Sidebar() {
             <SidebarOption text='Bookmarks' Icon = {BookmarkBorderIcon} link={'/'}/>
             <SidebarOption text='Profile' Icon ={PermIdentityIcon} link={'/profile'}/>
             <SidebarOption text='More' Icon={MoreHorizIcon} link={'/'}/>
-            <Button variant='outlined' className={styles.tweet} fullWidth onClick={goToSignin}>Sign in</Button>
+            { !userAddress?.address && <ConnectButton label='Signin here'/>}
         </div>
     )
 }

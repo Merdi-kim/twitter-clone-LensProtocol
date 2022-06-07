@@ -1,7 +1,7 @@
-import {useEffect, useRef} from 'react'
+import { useState,useRef} from 'react'
 import { useAccount } from 'wagmi'
-import { getDefaultProfile } from '../lens/requests/profile'
 import { Avatar, Button } from '@mui/material'
+import { getProfiles } from '../lens/requests/profile'
 import styles from '../styles/TweetModal.module.css'
 
 
@@ -14,20 +14,28 @@ function TweetModal() {
   const postPost = (e) => {
   }
 
-  const getProfile = async() => {
-    const data = await getDefaultProfile(userAddress?.address)
-    console.log(data)
+  const [user, setUser] = useState({
+    profile:'',
+    handle:''
+  })
+
+  const checkProfile = async(address) => {
+    const { data } = await getProfiles()
+    const {handle, picture} = data?.profiles?.items[0] 
+    setUser({...user, handle, profile:picture?.original?.url})
   }
 
-  useEffect(() => {
-    getProfile()
-  }, [userAddress])
+  if(userAddress?.address) {
+    checkProfile()
+  }
+
+ 
 
   return (
     <div className={styles.tweetModal}>
       <form onSubmit={postPost}>
         <div className={styles.input}>
-          <Avatar/>
+          <Avatar src={`${user.profile}/delta.jpeg`}/>
           <textarea ref ={text} placeholder="What's happening?" required />
         </div>
 

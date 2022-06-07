@@ -29,7 +29,7 @@ function Signin() {
     const imgLink = `https://ipfs.io/ipfs/${cid}`    
     const createProfileRequest = { 
       handle: userName,
-      bio: userBio,
+      //bio: userBio,
       profilePictureUri: imgLink,   
       followModule: {
         freeFollowModule: true
@@ -37,7 +37,6 @@ function Signin() {
     }
     try {
       await createProfile(createProfileRequest)
-      console.log('second hi')
       Router.push('/')
     }
     catch (err) {

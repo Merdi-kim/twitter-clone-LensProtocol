@@ -11,7 +11,7 @@ export const createProfile = (createProfileRequest) => {
    })
 }
 
-export const getDefaultProfile = (address) => {
+export const getProfiles = (address) => {
   return apolloClient.query({
    query: gql(GET_PROFILES),
    variables: {
