@@ -25,11 +25,10 @@ function Signin() {
     const {data} = await authenticate(accountData?.address, signature);
     const localStorage = window.localStorage
     localStorage.setItem('auth_token', data.authenticate.accessToken)
-    const cid = await web3storage.put(file)
-    const imgLink = `https://ipfs.io/ipfs/${cid}`    
+    const cid = await web3storage.put([file[0]])
+    const imgLink = `https://ipfs.io/ipfs/${cid}/${file[0].name}`    
     const createProfileRequest = { 
       handle: userName,
-      //bio: userBio,
       profilePictureUri: imgLink,   
       followModule: {
         freeFollowModule: true
@@ -57,7 +56,7 @@ function Signin() {
       <form onSubmit={createProfileHandler}>
         <input placeholder='Username...' type="text" onChange={(e) => setUserName(e.target.value)} />
         <textarea placeholder='Your bio...' cols="30" rows="4" onChange={(e) => setUserBio(e.target.value)}></textarea>
-        <input type="file" onChange={uploadImage} />
+        <input type="file" onChange={uploadImage} accept='image/*' />
         { fileUrl && <img src={fileUrl} alt="" />}
         
         { accountData?.address && <button type='submit'>submit</button> } 

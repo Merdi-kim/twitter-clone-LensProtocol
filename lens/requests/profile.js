@@ -16,7 +16,7 @@ export const getProfiles = (address) => {
    query: gql(GET_PROFILES),
    variables: {
      request: {
-      address
+       address
      }
    },
  })
