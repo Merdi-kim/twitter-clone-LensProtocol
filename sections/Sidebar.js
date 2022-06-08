@@ -18,15 +18,15 @@ function Sidebar() {
 
     return (
         <div className={styles.sidebar}>
-            <TwitterIcon className={styles.twitterIcon} link={'/'}/>
-            <SidebarOption active text='Home' Icon ={HomeIcon} link={'/'}/>
+            <TwitterIcon className={styles.twitterIcon}/>
+            <SidebarOption active text='Home' Icon ={HomeIcon}/>
             <SidebarOption text='Explore' Icon = {TagIcon} link={'/search'}/>
-            <SidebarOption text='Communities' Icon ={PeopleAltIcon} link={'/'}/>
-            <SidebarOption text='Notifications' Icon ={NotificationsNoneIcon} link={'/'}/>
-            <SidebarOption text='Messages' Icon ={MailOutlineIcon} link={'/'}/>
-            <SidebarOption text='Bookmarks' Icon = {BookmarkBorderIcon} link={'/'}/>
+            <SidebarOption text='Communities' Icon ={PeopleAltIcon}/>
+            <SidebarOption text='Notifications' Icon ={NotificationsNoneIcon}/>
+            <SidebarOption text='Messages' Icon ={MailOutlineIcon}/>
+            <SidebarOption text='Bookmarks' Icon = {BookmarkBorderIcon}/>
             <SidebarOption text='Profile' Icon ={PermIdentityIcon} link={'/profile'}/>
-            <SidebarOption text='More' Icon={MoreHorizIcon} link={'/'}/>
+            <SidebarOption text='More' Icon={MoreHorizIcon}/>
             <ConnectButton label='Signin here' showBalance={false} accountStatus={''}/>
         </div>
     )

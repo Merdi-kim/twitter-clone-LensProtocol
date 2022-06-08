@@ -10,7 +10,7 @@ import styles from '../styles/Tweet.module.css'
 
 const Tweet = forwardRef(({displayName,
     username,
-    verified,
+    stats,
     text,
     avatar,
     image}, ref) => {
@@ -32,9 +32,9 @@ const Tweet = forwardRef(({displayName,
                 </div>
                 <img src={image} alt="" />
                 <div className={styles.footer}>
-                  <section><ChatBubbleOutlineIcon fontSize='small'/> <span>30</span> </section>
-                   <section><RepeatIcon fontSize='small'/> <span>55</span></section>
-                  <section><FavoriteBorderIcon fontSize='small'/> <span>22</span></section>
+                  <section><ChatBubbleOutlineIcon fontSize='small'/> <span>{stats.totalAmountOfComments}</span> </section>
+                   <section><RepeatIcon fontSize='small'/> <span>{stats.totalAmountOfMirrors}</span></section>
+                  <section><FavoriteBorderIcon fontSize='small'/> <span>{stats.totalAmountOfCollects}</span></section>
                   <section><PublishIcon fontSize='small'/></section>
                </div>
             </div>

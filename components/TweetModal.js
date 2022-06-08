@@ -7,8 +7,6 @@ import { createPost } from '../lens/requests/tweet'
 import { generateChallenge, authenticate } from '../lens/requests/profile'
 import styles from '../styles/TweetModal.module.css'
 import { useEffect } from 'react'
-import { authenticateAdress } from '../lib/authentication'
-
 
 function TweetModal() {
 
@@ -36,9 +34,6 @@ function TweetModal() {
     if(!tweetText && tweetFile == null) {
       return console.log('no data')
     }
-    /*if(!tweetFile) {
-      return console.log('no file')
-    }*/
 
     const challengeResponse = await generateChallenge(userAddress?.address);
     const signature = await signer.signMessage(challengeResponse.data.challenge.text)

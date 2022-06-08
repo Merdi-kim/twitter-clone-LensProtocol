@@ -5,10 +5,10 @@ function SidebarOption({active,text, Icon, link}) {
 
   return (
     <div className={`${styles.sidebarOption} ${active && styles.active}`}>
-      <Link href={link} passHref className={styles.icon}>
+      <Link href={link ? link : '/'} passHref className={styles.icon}>
         <Icon/>
       </Link>      
-      <Link href={link} passHref>
+      <Link href={link ? link : '/'} passHref>
         <h2>{text}</h2>
       </Link>
     </div>
