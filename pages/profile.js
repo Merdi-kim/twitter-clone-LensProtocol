@@ -19,6 +19,7 @@ function Profile() {
   const checkProfile = async(address) => {
     const { data } = await getProfiles(address)
     const {handle, picture, stats} = data?.profiles?.items[0] 
+    console.log(stats)
     setUser({...user, handle, profile:picture?.original?.url, stats})
   }
 
@@ -46,10 +47,20 @@ function Profile() {
         <img className={styles.picture} src={user.profile} alt='profile'/>
         <div className={styles.info}>
           <h3>{user?.handle}</h3>
-          <p>This is my bio I'm a very cool guy</p>
-          <section className={styles.stats}>
-            <span>{user.stats?.totalFollowers}{" "}Followers</span>
-          </section>
+          <div className={styles.stats}>
+            <section className={styles.stat}>
+              <span>{user.stats?.totalFollowers}{" "}</span>
+              <span>Followers</span>
+            </section>
+            <section className={styles.stat}>
+              <span>{user.stats?.totalFollowing}{" "}</span>
+              <span>Following</span>
+            </section>
+            <section className={styles.stat}>
+              <span>{user.stats?.totalPublications}{" "}</span>
+              <span>Publications</span>
+            </section>
+          </div>
         </div>
         <button className="disconnect" onClick={disconnectAccount}>Logout</button>
         

@@ -18,6 +18,25 @@
     text-align: center;
 }
 
+.container>button {
+    width: 60%;
+    left: 20%;
+    height: 2rem;
+    color: rgb(224, 7, 7);
+    background-color: rgb(248, 209, 209);
+    font-weight: 800;
+    position: absolute;
+    bottom: 1.5rem;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.container>button:hover {
+    background-color: rgb(243, 88, 88);
+    color: white;
+}
+
 .coverPicture {
     height: 40%;
     width: 100%;
@@ -32,11 +51,24 @@
     left: 35%;
     top: 25%;
     border: 2px solid white;
-    background-color: white;
+    background-color: rgb(235, 232, 232);
 }
 
 .info {
     margin-top: 6rem;
+}
+
+.stats {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 3rem;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
 }
 
 @media  screen and (max-width:1080px) {

@@ -27,7 +27,7 @@ function Sidebar() {
             <SidebarOption text='Bookmarks' Icon = {BookmarkBorderIcon} link={'/'}/>
             <SidebarOption text='Profile' Icon ={PermIdentityIcon} link={'/profile'}/>
             <SidebarOption text='More' Icon={MoreHorizIcon} link={'/'}/>
-            { !userAddress?.address && <ConnectButton label='Signin here'/> }
+            <ConnectButton label='Signin here' showBalance={false} accountStatus={''}/>
         </div>
     )
 }

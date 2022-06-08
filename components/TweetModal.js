@@ -1,54 +1,57 @@
 import { useState } from 'react'
-import { useAccount } from 'wagmi'
+import { checkProfile } from '../lib/checkProfile'
+import { useAccount , useSigner} from 'wagmi'
 import { Web3Storage } from 'web3.storage'
 import { Avatar, Button } from '@mui/material'
-import { getProfiles } from '../lens/requests/profile'
 import { createPost } from '../lens/requests/tweet'
+import { generateChallenge, authenticate } from '../lens/requests/profile'
 import styles from '../styles/TweetModal.module.css'
-import Router from 'next/router'
+import { useEffect } from 'react'
+import { authenticateAdress } from '../lib/authentication'
 
 
 function TweetModal() {
 
+  const [user, setUser] = useState({
+    id:'',
+    profile:''
+  })
   const [tweetText, setTweetText] = useState('')
   const [tweetFile, setTweetFile] = useState(null)
   const { data:userAddress } = useAccount()
+  const { data : signer, isError, isLoading } = useSigner()
   const apiKey = process.env.NEXT_PUBLIC_STORAGE_KEY
   const web3storage = new Web3Storage({token:apiKey})
 
-  const [user, setUser] = useState({
-    id:'',
-    profile:'',
-    handle:''
-  })
-
-  const checkProfile = async(address) => {
-    const { data } = await getProfiles(address)
-    if(data?.profiles?.items.length == 0) {
-      return Router.push('/signin')
+  useEffect(() => {
+    const fetchData = async() => {
+      const {id, picture} = await checkProfile()
+     setUser({...user, id, profile:picture?.original?.url})
     }
-    const {id, handle, picture} = data?.profiles?.items[0] 
-    setUser({...user, id, handle, profile:picture?.original?.url})
-  }
-
-  if(userAddress?.address) {
-    checkProfile()
-  }
+    fetchData()
+  }, [userAddress?.address])
 
   const createTweet = async(e) => {
     e.preventDefault()
-    /*let tweetFileLink
     if(!tweetText && tweetFile == null) {
-      return console.log('helo')
+      return console.log('no data')
     }
-    if(tweetFile != null) {
-      const blob = new Blob([JSON.stringify({tweetText})], { type: 'application/json' })
-      const cid = await web3storage.put([file[0], new File([blob], 'metadata.json') ])
+    /*if(!tweetFile) {
+      return console.log('no file')
     }*/
 
+    const challengeResponse = await generateChallenge(userAddress?.address);
+    const signature = await signer.signMessage(challengeResponse.data.challenge.text)
+    const {data} = await authenticate(userAddress?.address, signature);
+    const localStorage = window.localStorage
+    localStorage.setItem('auth_token', data.authenticate.accessToken)
+    const blob = new Blob([JSON.stringify({tweetText})], { type: 'application/json' })
+    const files = tweetFile ? [tweetFile[0], new File([blob], 'metadata.json')] : [new File([blob], 'metadata.json')]
+    const cid = await web3storage.put(files)
+    console.log(`https://ipfs.io/ipfs/${cid}`)
     const createPostRequest = {
       profileId: user.id,
-      contentURI: "ipfs://QmPogtffEF3oAbKERsoR4Ky8aTvLgBF5totp5AuF8YN6vl.json",
+      contentURI: "https://ipfs.io/ipfs/bafybeic3kuubhsdycmkgrztdwnaxaw2pdkxti7u47ewhgfzcmd4vwbmkbi",
       collectModule: {
         freeCollectModule:  {
           followerOnly: true
@@ -61,7 +64,6 @@ function TweetModal() {
 
     const tx = await createPost(createPostRequest)
     console.log(tx)
-    
   }
 
   return (
@@ -76,7 +78,7 @@ function TweetModal() {
         <input 
           type="file" 
           className={styles.inputImage}
-          onChange= {(e) => setTweetText(e.target.files)}
+          onChange= {(e) => setTweetFile(e.target.files)}
         />
         <Button className={styles.tweetButton} type='submit' >Tweet</Button>
         </section>

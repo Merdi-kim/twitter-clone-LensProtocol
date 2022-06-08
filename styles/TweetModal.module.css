@@ -38,10 +38,10 @@
 }
 
 .inputImage::before {
-    content: 'Select file';
+    content: 'Add image';
     display: inline-block;
     background: var(--twitter-background);
-    border: 1px solid #999;
+    border: 1px solid rgb(218, 217, 217);
     border-radius: 3px;
     padding: 5px 8px;
     outline: none;
