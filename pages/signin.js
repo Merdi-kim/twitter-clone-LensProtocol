@@ -9,17 +9,16 @@ import styles from '../styles/Signin.module.css'
 function Signin() {
 
   const [userName, setUserName] = useState('')
-  const [userBio, setUserBio] = useState('')
   const [fileUrl, setFileUrl] = useState('')
   const [file, setFile] = useState()
-  const apiKey = process.env.NEXT_PUBLIC_STORAGE_KEY
-  const web3storage = new Web3Storage({token:apiKey})
+  const storageKey = process.env.NEXT_PUBLIC_STORAGE_KEY
+  const web3storage = new Web3Storage({token:storageKey})
   const {data : accountData} = useAccount()
-  const { data : signer, isError, isLoading } = useSigner()
+  const { data : signer } = useSigner()
 
   const createProfileHandler = async(e) => {
     e.preventDefault()
-    if(file.length === 0 || !userName) return 
+    if(file.length === 0 && !userName) return 
     const challengeResponse = await generateChallenge(accountData?.address);
     const signature = await signer.signMessage(challengeResponse.data.challenge.text)
     const {data} = await authenticate(accountData?.address, signature);
@@ -55,7 +54,6 @@ function Signin() {
     <div className={styles.new_account}>
       <form onSubmit={createProfileHandler}>
         <input placeholder='Username...' type="text" onChange={(e) => setUserName(e.target.value)} />
-        <textarea placeholder='Your bio...' cols="30" rows="4" onChange={(e) => setUserBio(e.target.value)}></textarea>
         <input type="file" onChange={uploadImage} accept='image/*' />
         { fileUrl && <img src={fileUrl} alt="" />}
         

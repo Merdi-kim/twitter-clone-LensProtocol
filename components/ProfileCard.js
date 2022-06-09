@@ -19,23 +19,15 @@ function ProfileCard({ isMine, userAddress }) {
   }
 
   useEffect(() => {
-
     if(userAddress) {
       checkProfile()
     }
-
   }, [userAddress])
 
-  if(userAddress) {
-    checkProfile()
+  const disconnectAccount = () => {
+    useDisconnect().disconnect()
+    Router.push('/')
   }
-
-    const { disconnect } = useDisconnect()
-
-    const disconnectAccount = () => {
-        disconnect()
-        Router.push('/')
-    }
 
   return (
     <div className={styles.profile}>

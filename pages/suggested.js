@@ -6,14 +6,14 @@ function Suggested() {
 
   const [recommendedUsers, setRecommendedUsers] = useState([])
 
-  const fetcRecommendedProfiles = async() => {
+  const fetchRecommendedProfiles = async() => {
     const { data } = await recommendedProfiles()
     console.log(data.recommendedProfiles)
     setRecommendedUsers(data.recommendedProfiles)
   }
 
   useEffect(() => {
-    fetcRecommendedProfiles()
+    fetchRecommendedProfiles()
   }, [])
 
   return (

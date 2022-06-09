@@ -4,24 +4,15 @@ import RepeatIcon from '@mui/icons-material/Repeat'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import PublishIcon from '@mui/icons-material/Publish'
 import styles from '../styles/Tweet.module.css'
-import router  from 'next/router'
+import { goToProfile} from '../helpers/goToProfile'
 
 
 
 function Tweet({displayName, username, stats, text, avatar, ownedBy, image}) {
 
-    const goToProfile = () => {
-        router.push({
-            pathname:`/profile/${ownedBy}`,
-            query: {
-                ownedBy
-            }
-        })
-    }
-
     return (
         <div className={styles.tweet}>
-            <div className={styles.avatar} onClick={goToProfile}>
+            <div className={styles.avatar} onClick={() => goToProfile(ownedBy) }>
                 <Avatar src={avatar}/>
             </div>
            

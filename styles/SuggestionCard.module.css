@@ -1,0 +1,14 @@
+.card {
+    height: 300px;
+    width: 300px;
+    border-radius: 99px;
+    overflow: hidden;
+    margin: 1rem;
+    border: 1px solid var(--twitter-background);
+    cursor: pointer;
+}
+
+.card>img {
+    height: 100%;
+    width: 100%;
+}

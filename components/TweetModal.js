@@ -1,12 +1,11 @@
-import { useState } from 'react'
-import { checkProfile } from '../lib/checkProfile'
+import { useState, useEffect } from 'react'
+import { checkProfile } from '../helpers/checkProfile'
 import { useAccount , useSigner} from 'wagmi'
 import { Web3Storage } from 'web3.storage'
 import { Avatar, Button } from '@mui/material'
 import { createPost } from '../lens/requests/tweet'
 import { generateChallenge, authenticate } from '../lens/requests/profile'
 import styles from '../styles/TweetModal.module.css'
-import { useEffect } from 'react'
 
 function TweetModal() {
 
