@@ -23,10 +23,8 @@
     color: gray;
 }
 .widgetContainer {
-    margin-top: 15px;
+    margin-top: 30px;
     margin-left: 20px;
-    padding: 20px;
-    background-color: #f5f8fa;
     border-radius: 20px;
 }
 

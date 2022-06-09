@@ -104,10 +104,112 @@ query Profiles {
 }
 `
 
-export const SEARCH_FOR_PROFILE = `query Profiles {
-  profiles(request: { handles: ["josh.dev"], limit: 1 }) {
-    items {
-      id
+export const SEARCH_FOR_PROFILE = `query Search {
+  search(request: {
+    query: "josh",
+    type: PROFILE,
+    limit: 10
+  }) {
+    ... on ProfileSearchResult {
+      __typename 
+      items {
+        ... on Profile {
+          ...ProfileFields
+        }
+      }
+      pageInfo {
+        prev
+        totalCount
+        next
+      }
+    }
+  }
+}
+
+fragment MediaFields on Media {
+  url
+  mimeType
+}
+
+fragment ProfileFields on Profile {
+  profileId: id,
+  name
+  bio
+  attributes {
+    displayType
+    traitType
+    key
+    value
+  }
+  metadata
+  isDefault
+  handle
+  picture {
+    ... on NftImage {
+      contractAddress
+      tokenId
+      uri
+      verified
+    }
+    ... on MediaSet {
+      original {
+        ...MediaFields
+      }
+    }
+  }
+  coverPicture {
+    ... on NftImage {
+      contractAddress
+      tokenId
+      uri
+      verified
+    }
+    ... on MediaSet {
+      original {
+        ...MediaFields
+      }
+    }
+  }
+  ownedBy
+  dispatcher {
+    address
+  }
+  stats {
+    totalFollowers
+    totalFollowing
+    totalPosts
+    totalComments
+    totalMirrors
+    totalPublications
+    totalCollects
+  }
+  followModule {
+    ... on FeeFollowModuleSettings {
+      type
+      amount {
+        asset {
+          name
+          symbol
+          decimals
+          address
+        }
+        value
+      }
+      recipient
+    }
+    ... on ProfileFollowModuleSettings {
+     type
+    }
+    ... on RevertFollowModuleSettings {
+     type
+    }
+  }
+}`
+
+export const RECOMMENDED_PROFILES = `
+query RecommendedProfiles {
+  recommendedProfiles {
+        id
       name
       bio
       attributes {
@@ -184,14 +286,9 @@ export const SEARCH_FOR_PROFILE = `query Profiles {
          type
         }
       }
-    }
-    pageInfo {
-      prev
-      next
-      totalCount
-    }
   }
-}`
+}
+`
 
 export const GET_CHALLENGE = `
   query($request: ChallengeRequest!) {

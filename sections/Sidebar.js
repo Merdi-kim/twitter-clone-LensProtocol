@@ -20,8 +20,8 @@ function Sidebar() {
         <div className={styles.sidebar}>
             <TwitterIcon className={styles.twitterIcon}/>
             <SidebarOption active text='Home' Icon ={HomeIcon}/>
-            <SidebarOption text='Explore' Icon = {TagIcon} link={'/search'}/>
-            <SidebarOption text='Communities' Icon ={PeopleAltIcon}/>
+            <SidebarOption text='Explore' Icon = {TagIcon}/>
+            <SidebarOption text='Suggested' Icon ={PeopleAltIcon} link={'/suggested'}/>
             <SidebarOption text='Notifications' Icon ={NotificationsNoneIcon}/>
             <SidebarOption text='Messages' Icon ={MailOutlineIcon}/>
             <SidebarOption text='Bookmarks' Icon = {BookmarkBorderIcon}/>

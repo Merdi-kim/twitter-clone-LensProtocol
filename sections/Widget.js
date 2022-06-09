@@ -3,16 +3,18 @@ import { searchForProfile } from '../lens/requests/profile'
 import SearchIcon from '@mui/icons-material/Search'
 import { TwitterTimelineEmbed, TwitterTweetEmbed } from 'react-twitter-embed'
 import styles from '../styles/Widget.module.css'
+import ProfileSearchCard from '../components/ProfileSearchCard'
 
 function Widget() {
 
     const [searchInput, setSearchInput] = useState('')
+    const [searchResult, setSearchResult] = useState([])
 
     const searchProfile = async(e) => {
         e.preventDefault()
         if(!searchInput) return
-        const data = await searchForProfile()
-        console.log(data)
+        const { data } = await searchForProfile()
+        setSearchResult(data.search.items)
     }
     return (
         <div className={styles.widget}>
@@ -23,13 +25,7 @@ function Widget() {
             </form>
 
             <div className={styles.widgetContainer}>
-                <h2>What's happening</h2>
-                <TwitterTweetEmbed tweetId={"1424873444190081030"} />
-                <TwitterTimelineEmbed
-                 sourceType="profile"
-                 screenName="KimMerdi"
-                 options={{height: 400}}
-                />
+                { searchResult?.map(({handle, picture}) => <ProfileSearchCard src={picture.original.url} handle={handle}/>) }  
             </div>
 
             

@@ -15,7 +15,6 @@ function ProfileCard({ isMine, userAddress }) {
   const checkProfile = async(userAddress) => {
     const { data } = await getProfiles(userAddress)
     const {handle, picture, stats} = data?.profiles?.items[0] 
-    console.log(stats)
     setUser({...user, handle, profile:picture?.original?.url, stats})
   }
 

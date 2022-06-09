@@ -17,9 +17,9 @@ function TweetModal() {
   const [tweetText, setTweetText] = useState('')
   const [tweetFile, setTweetFile] = useState(null)
   const { data:userAddress } = useAccount()
-  const { data : signer, isError, isLoading } = useSigner()
-  const apiKey = process.env.NEXT_PUBLIC_STORAGE_KEY
-  const web3storage = new Web3Storage({token:apiKey})
+  const { data : signer } = useSigner()
+  const storageKey = process.env.NEXT_PUBLIC_STORAGE_KEY
+  const web3storage = new Web3Storage({token:storageKey})
 
   useEffect(() => {
     const fetchData = async() => {
@@ -32,7 +32,7 @@ function TweetModal() {
 
   const createTweet = async(e) => {
     e.preventDefault()
-    if(!tweetText && tweetFile == null) {
+    if(!tweetText && tweetFile == null || !userAddress) {
       return console.log('no data')
     }
 
@@ -44,10 +44,9 @@ function TweetModal() {
     const blob = new Blob([JSON.stringify({tweetText})], { type: 'application/json' })
     const files = tweetFile ? [tweetFile[0], new File([blob], 'metadata.json')] : [new File([blob], 'metadata.json')]
     const cid = await web3storage.put(files)
-    console.log(`https://ipfs.io/ipfs/${cid}`)
     const createPostRequest = {
       profileId: user.id,
-      contentURI: "https://ipfs.io/ipfs/bafybeic3kuubhsdycmkgrztdwnaxaw2pdkxti7u47ewhgfzcmd4vwbmkbi",
+      contentURI: `https://ipfs.io/ipfs/${cid}`,
       collectModule: {
         freeCollectModule:  {
           followerOnly: true
@@ -58,6 +57,7 @@ function TweetModal() {
       }
     };
     await createPost(createPostRequest)
+    window.location.reload()
   }
 
   return (
