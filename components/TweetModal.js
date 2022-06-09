@@ -26,7 +26,8 @@ function TweetModal() {
       const {id, picture} = await checkProfile()
      setUser({...user, id, profile:picture?.original?.url})
     }
-    fetchData()
+    if(userAddress?.address) fetchData()
+
   }, [userAddress?.address])
 
   const createTweet = async(e) => {
@@ -56,9 +57,7 @@ function TweetModal() {
         followerOnlyReferenceModule: false
       }
     };
-
-    const tx = await createPost(createPostRequest)
-    console.log(tx)
+    await createPost(createPostRequest)
   }
 
   return (

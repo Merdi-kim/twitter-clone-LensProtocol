@@ -7,6 +7,7 @@
 
 .avatar {
     padding: 20px 8px;
+    cursor: pointer;
 }
 
 .body {

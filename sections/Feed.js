@@ -25,7 +25,7 @@ function Feed() {
       </div>
       <TweetModal/>
       <div>
-        {posts?.map(({profile, metadata, stats}) => <Tweet key={Math.random() ** Math.random()} displayName={profile.name} username={profile.handle} /*verified={post.verified}*/ text={metadata.content} avatar={profile.picture.original.url} /*image={post.image}*/ stats={stats}/>)} 
+        {posts?.map(({profile, metadata, stats}) => <Tweet key={Math.random() ** Math.random()} displayName={profile.name} username={profile.handle} ownedBy={profile.ownedBy} text={metadata.content} avatar={profile.picture.original.url} /*image={post.image}*/ stats={stats}/>)} 
       </div>
     </div>
   )
