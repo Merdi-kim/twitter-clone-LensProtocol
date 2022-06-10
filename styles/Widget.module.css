@@ -23,7 +23,7 @@
     color: gray;
 }
 .widgetContainer {
-    height: 100%;
+    height: calc(100% - 100px);
     overflow: scroll;
     margin-top: 30px;
     margin-left: 20px;

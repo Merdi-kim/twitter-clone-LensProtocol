@@ -46,10 +46,10 @@
 .picture {
     height: 32% !important;
     width: 30% !important;
-    position: absolute;
-    left: 35%;
-    top: 25%;
-    border: 2px solid var(--twitter-color);
+    position: absolute !important;
+    left: 35% !important;
+    top: 25% !important;
+    border: 2px solid var(--twitter-color) !important;
 }
 
 .info {
