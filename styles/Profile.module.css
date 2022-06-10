@@ -44,14 +44,12 @@
 }
 
 .picture {
-    height: 32%;
-    width: 30%;
-    border-radius: 50%;
+    height: 32% !important;
+    width: 30% !important;
     position: absolute;
     left: 35%;
     top: 25%;
-    border: 2px solid white;
-    background-color: rgb(235, 232, 232);
+    border: 2px solid var(--twitter-color);
 }
 
 .info {

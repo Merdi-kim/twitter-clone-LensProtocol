@@ -25,7 +25,7 @@ function Widget() {
             </form>
 
             <div className={styles.widgetContainer}>
-                { searchResult?.map(({handle, picture, ownedBy}) => <ProfileSearchCard src={picture?.original.url} handle={handle} ownedBy={ownedBy}/>) }  
+                { searchResult.length !== 0 ? searchResult?.map(({handle, picture, ownedBy}) => <ProfileSearchCard src={picture?.original.url} handle={handle} ownedBy={ownedBy}/>) : <p>No match</p> }  
             </div>
 
             
