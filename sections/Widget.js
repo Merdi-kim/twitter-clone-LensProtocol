@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { searchForProfile } from '../lens/requests/profile'
 import SearchIcon from '@mui/icons-material/Search'
 import styles from '../styles/Widget.module.css'
@@ -16,6 +16,10 @@ function Widget() {
         console.log(data.search.items)
         setSearchResult(data.search.items)
     }
+
+    useEffect(() => {
+        searchProfile('jo')
+    }, [])
     return (
         <div className={styles.widget}>
             <form className={styles.input} onSubmit={searchProfile}>
