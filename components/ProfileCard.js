@@ -21,7 +21,7 @@ function ProfileCard({ isMine, userAddress }) {
   }
 
   useEffect(() => {
-    if(userAddress) {
+    if(!userAddress) {
       window.alert("No user logged In ")
       router.push('/')
     }

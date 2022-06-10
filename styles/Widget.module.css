@@ -23,9 +23,14 @@
     color: gray;
 }
 .widgetContainer {
+    height: 100%;
+    overflow: scroll;
     margin-top: 30px;
     margin-left: 20px;
     border-radius: 20px;
+}
+.widgetContainer::-webkit-scrollbar {
+    width: 0;
 }
 
 .widgetContainer > h2 {
