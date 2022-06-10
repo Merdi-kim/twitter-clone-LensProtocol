@@ -2,7 +2,7 @@ export const EXPLORE_PUBLICATIONS = `query ExplorePublications {
   explorePublications(request: {
     sortCriteria: TOP_COMMENTED,
     publicationTypes: [POST],
-    limit:12
+    limit:13
     
   }) {
     items {

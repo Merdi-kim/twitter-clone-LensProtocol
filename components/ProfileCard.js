@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Router from 'next/router'
 import { useDisconnect } from 'wagmi'
+import { Avatar } from '@mui/material'
 import { getProfiles } from '../lens/requests/profile'
 import styles from '../styles/Profile.module.css'
 
@@ -11,6 +12,7 @@ function ProfileCard({ isMine, userAddress }) {
     handle:'',
     stats:null
   })
+  const { disconnect } = useDisconnect()
 
   const checkProfile = async(userAddress) => {
     const { data } = await getProfiles(userAddress)
@@ -20,12 +22,12 @@ function ProfileCard({ isMine, userAddress }) {
 
   useEffect(() => {
     if(userAddress) {
-      checkProfile()
+      checkProfile(userAddress)
     }
   }, [userAddress])
 
   const disconnectAccount = () => {
-    useDisconnect().disconnect()
+    disconnect()
     Router.push('/')
   }
 
@@ -33,7 +35,7 @@ function ProfileCard({ isMine, userAddress }) {
     <div className={styles.profile}>
       <div className={styles.container}>
         <img className={styles.coverPicture} src='https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg' alt='cover'/>
-        <img className={styles.picture} src={user?.profile} alt='profile'/>
+        <Avatar className={styles.picture} src={user?.profile}/>
         <div className={styles.info}>
           <h3>{user?.handle}</h3>
           <div className={styles.stats}>

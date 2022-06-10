@@ -56,9 +56,7 @@ function Signin() {
         <input placeholder='Username...' type="text" onChange={(e) => setUserName(e.target.value)} />
         <input type="file" onChange={uploadImage} accept='image/*' />
         { fileUrl && <img src={fileUrl} alt="" />}
-        
-        { accountData?.address && <button type='submit'>submit</button> } 
-        { !accountData?.address && <ConnectButton/> }
+        <button type='submit'>submit</button> 
       </form>
     </div>
   )

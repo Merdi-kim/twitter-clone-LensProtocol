@@ -12,20 +12,22 @@ export const createProfile = (createProfileRequest) => {
 }
 
 export const getProfiles = (address) => {
+  const profileQuery = GET_PROFILES(address)
   return apolloClient.query({
-   query: gql(GET_PROFILES),
+   query: gql(profileQuery),
    /*variables: {
     request: {
       ownedBy: [`${address}`], 
-      limit: 10
+      limit: 2
     }
    },*/
- })
+  })
 }
 
-export const searchForProfile = () => {
+export const searchForProfile = (searchInput) => {
+  const searchQuery = SEARCH_FOR_PROFILE(searchInput)
   return apolloClient.query({
-    query: gql(SEARCH_FOR_PROFILE),
+    query: gql(searchQuery),
   })
 }
 

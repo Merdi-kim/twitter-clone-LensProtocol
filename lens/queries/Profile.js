@@ -12,10 +12,10 @@ export const CREATE_PROFILE = `
     }
  }
 `  
-
-export const GET_PROFILES = `
+//ownedBy:["0x8bEdd25C40872b18EAc853E9ee221F42804e3b72"], limit:14
+export const GET_PROFILES = (address) =>  `
 query Profiles {
-  profiles(request: { ownedBy:["0x8bEdd25C40872b18EAc853E9ee221F42804e3b72"], limit:14} ) {
+  profiles(request: { ownedBy: ["${address}"], limit: 2 }) {
     items {
       id
       name
@@ -104,9 +104,9 @@ query Profiles {
 }
 `
 
-export const SEARCH_FOR_PROFILE = `query Search {
+export const SEARCH_FOR_PROFILE = (searchInput) => `query Search {
   search(request: {
-    query: "josh",
+    query: ${searchInput},
     type: PROFILE,
     limit: 10
   }) {

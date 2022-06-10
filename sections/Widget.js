@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { searchForProfile } from '../lens/requests/profile'
 import SearchIcon from '@mui/icons-material/Search'
-import { TwitterTimelineEmbed, TwitterTweetEmbed } from 'react-twitter-embed'
 import styles from '../styles/Widget.module.css'
 import ProfileSearchCard from '../components/ProfileSearchCard'
 
@@ -13,7 +12,8 @@ function Widget() {
     const searchProfile = async(e) => {
         e.preventDefault()
         if(!searchInput) return
-        const { data } = await searchForProfile()
+        const { data } = await searchForProfile(searchInput)
+        console.log(data.search.items)
         setSearchResult(data.search.items)
     }
     return (
@@ -25,7 +25,7 @@ function Widget() {
             </form>
 
             <div className={styles.widgetContainer}>
-                { searchResult?.map(({handle, picture, ownedBy}) => <ProfileSearchCard src={picture.original.url} handle={handle} ownedBy={ownedBy}/>) }  
+                { searchResult?.map(({handle, picture, ownedBy}) => <ProfileSearchCard src={picture?.original.url} handle={handle} ownedBy={ownedBy}/>) }  
             </div>
 
             

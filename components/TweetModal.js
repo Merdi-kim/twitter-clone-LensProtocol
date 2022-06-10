@@ -22,7 +22,7 @@ function TweetModal() {
 
   useEffect(() => {
     const fetchData = async() => {
-      const {id, picture} = await checkProfile()
+      const {id, picture} = await checkProfile(userAddress?.address)
      setUser({...user, id, profile:picture?.original?.url})
     }
     if(userAddress?.address) fetchData()
@@ -55,8 +55,9 @@ function TweetModal() {
         followerOnlyReferenceModule: false
       }
     };
-    await createPost(createPostRequest)
-    window.location.reload()
+    const dd = await createPost(createPostRequest)
+    console.log(dd)
+    //window.location.reload()
   }
 
   return (
