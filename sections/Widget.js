@@ -9,16 +9,19 @@ function Widget() {
     const [searchInput, setSearchInput] = useState('')
     const [searchResult, setSearchResult] = useState([])
 
-    const searchProfile = async(e) => {
-        e.preventDefault()
-        if(!searchInput) return
+    const fetchProfiles = async() => {
         const { data } = await searchForProfile(searchInput)
-        console.log(data.search.items)
         setSearchResult(data.search.items)
     }
 
+    const searchProfile = async(e) => {
+        e.preventDefault()
+        if(!searchInput) return
+       fetchProfiles()
+    }
+
     useEffect(() => {
-        searchProfile('jo')
+        fetchProfiles()
     }, [])
     return (
         <div className={styles.widget}>
