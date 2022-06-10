@@ -17,7 +17,7 @@ function Suggested() {
 
   return (
     <div style={{display:'flex', justifyContent:'center', flexWrap:'wrap'}}>
-      { recommendedUsers?.map(({ ownedBy, picture}) => <SuggestionCard src={picture?.original.url} ownedBy={ownedBy} />) }
+      { recommendedUsers?.map(({ ownedBy, picture}) => <SuggestionCard key={picture?.original.url} src={picture?.original.url} ownedBy={ownedBy} />) }
     </div>
   )
 }
