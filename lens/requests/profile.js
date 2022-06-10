@@ -14,13 +14,7 @@ export const createProfile = (createProfileRequest) => {
 export const getProfiles = (address) => {
   const profileQuery = GET_PROFILES(address)
   return apolloClient.query({
-   query: gql(profileQuery),
-   /*variables: {
-    request: {
-      ownedBy: [`${address}`], 
-      limit: 2
-    }
-   },*/
+   query: gql(profileQuery)
   })
 }
 
@@ -41,9 +35,9 @@ export const generateChallenge = (address) => {
   return apolloClient.query({
    query: gql(GET_CHALLENGE),
    variables: {
-     request: {
-       address
-     }
+    request: {
+      address
+    }
    },
  })
 }
@@ -52,10 +46,10 @@ export const authenticate = (address, signature) => {
   return apolloClient.mutate({
    mutation: gql(AUTHENTICATION),
    variables: {
-     request: {
-       address,
-       signature,
-     },
-   },
- })
+    request: {
+      address,
+      signature,
+    },
+  },
+  })
 }

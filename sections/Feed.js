@@ -8,14 +8,13 @@ function Feed() {
 
   const [posts, setPosts] = useState([])
 
-  const getPosts = async() => {
+  const fetchPosts = async() => {
     const {data} = await explorePublications()
     setPosts(data.explorePublications.items)
-    console.log(data.explorePublications.items)
   }
  
   useEffect(() => {
-    getPosts()
+    fetchPosts()
   }, [])
 
   return (
@@ -25,7 +24,7 @@ function Feed() {
       </div>
       <TweetModal/>
       <div>
-        {posts?.map(({profile, metadata, stats}) => <Tweet key={Math.random() ** Math.random()} displayName={profile.name} username={profile.handle} ownedBy={profile.ownedBy} text={metadata.content} avatar={profile.picture.original.url} /*image={post.image}*/ stats={stats}/>)} 
+        {posts?.map(({profile, metadata, stats}) => <Tweet key={metadata.content} displayName={profile.name} username={profile.handle} ownedBy={profile.ownedBy} text={metadata.content} avatar={profile.picture.original.url} stats={stats}/>)} 
       </div>
     </div>
   )

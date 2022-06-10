@@ -8,13 +8,10 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
-import { useAccount } from 'wagmi'
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import styles from '../styles/Sidebar.module.css'
 
 function Sidebar() {
-
-    const { data:userAddress } = useAccount()
 
     return (
         <div className={styles.sidebar}>

@@ -15,19 +15,19 @@ function TweetModal() {
   })
   const [tweetText, setTweetText] = useState('')
   const [tweetFile, setTweetFile] = useState(null)
-  const { data:userAddress } = useAccount()
+  const { data:userData} = useAccount()
   const { data : signer } = useSigner()
   const storageKey = process.env.NEXT_PUBLIC_STORAGE_KEY
   const web3storage = new Web3Storage({token:storageKey})
 
-  useEffect(() => {
-    const fetchData = async() => {
-      const {id, picture} = await checkProfile(userAddress?.address)
-     setUser({...user, id, profile:picture?.original?.url})
-    }
-    if(userAddress?.address) fetchData()
+  const fetchData = async() => {
+    const {id, picture} = await checkProfile(userData?.address)
+    setUser({...user, id, profile:picture?.original?.url})
+  }
 
-  }, [userAddress?.address])
+  useEffect(() => {
+    if(userData?.address) fetchData()
+  }, [userData?.address])
 
   const createTweet = async(e) => {
     e.preventDefault()
@@ -55,9 +55,8 @@ function TweetModal() {
         followerOnlyReferenceModule: false
       }
     };
-    const dd = await createPost(createPostRequest)
-    console.log(dd)
-    //window.location.reload()
+    await createPost(createPostRequest)
+    window.location.reload()
   }
 
   return (

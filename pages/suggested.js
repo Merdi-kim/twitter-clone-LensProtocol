@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import SuggestionCard from '../components/SuggestionCard'
 import { recommendedProfiles } from '../lens/requests/profile'
 
@@ -6,14 +6,13 @@ function Suggested() {
 
   const [recommendedUsers, setRecommendedUsers] = useState([])
 
-  const fetchRecommendedProfiles = async() => {
+  const getRecommendedProfiles = async() => {
     const { data } = await recommendedProfiles()
-    console.log(data.recommendedProfiles)
     setRecommendedUsers(data.recommendedProfiles)
   }
 
   useEffect(() => {
-    fetchRecommendedProfiles()
+    getRecommendedProfiles()
   }, [])
 
   return (

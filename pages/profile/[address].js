@@ -1,4 +1,3 @@
-import React from 'react'
 import { useRouter } from 'next/dist/client/router'
 import ProfileCard from '../../components/ProfileCard'
 

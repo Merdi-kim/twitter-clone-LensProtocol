@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import Router from 'next/router';
 import { useAccount, useSigner } from 'wagmi'
-import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { Web3Storage } from 'web3.storage';
 import { generateChallenge, authenticate, createProfile } from '../lens/requests/profile'
 import styles from '../styles/Signin.module.css'
@@ -16,24 +15,24 @@ function Signin() {
   const {data : accountData} = useAccount()
   const { data : signer } = useSigner()
 
-  const createProfileHandler = async(e) => {
+  const createProfile = async(e) => {
     e.preventDefault()
     if(file.length === 0 && !userName) return 
-    const challengeResponse = await generateChallenge(accountData?.address);
-    const signature = await signer.signMessage(challengeResponse.data.challenge.text)
-    const {data} = await authenticate(accountData?.address, signature);
-    const localStorage = window.localStorage
-    localStorage.setItem('auth_token', data.authenticate.accessToken)
-    const cid = await web3storage.put([file[0]])
-    const imgLink = `https://ipfs.io/ipfs/${cid}/${file[0].name}`    
-    const createProfileRequest = { 
-      handle: userName,
-      profilePictureUri: imgLink,   
-      followModule: {
-        freeFollowModule: true
-      }
-    }
     try {
+      const challengeResponse = await generateChallenge(accountData?.address);
+      const signature = await signer.signMessage(challengeResponse.data.challenge.text)
+      const {data} = await authenticate(accountData?.address, signature);
+      const localStorage = window.localStorage
+      localStorage.setItem('auth_token', data.authenticate.accessToken)
+      const cid = await web3storage.put([file[0]])
+      const imgLink = `https://ipfs.io/ipfs/${cid}/${file[0].name}`    
+      const createProfileRequest = { 
+        handle: userName,
+        profilePictureUri: imgLink,   
+        followModule: {
+          freeFollowModule: true
+        }
+      }
       await createProfile(createProfileRequest)
       Router.push('/')
     }
@@ -52,7 +51,7 @@ function Signin() {
 
   return (
     <div className={styles.new_account}>
-      <form onSubmit={createProfileHandler}>
+      <form onSubmit={createProfile}>
         <input placeholder='Username...' type="text" onChange={(e) => setUserName(e.target.value)} />
         <input type="file" onChange={uploadImage} accept='image/*' />
         { fileUrl && <img src={fileUrl} alt="" />}

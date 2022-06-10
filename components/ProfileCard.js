@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Router from 'next/router'
+import router from 'next/router'
 import { useDisconnect } from 'wagmi'
 import { Avatar } from '@mui/material'
 import { getProfiles } from '../lens/requests/profile'
@@ -22,19 +22,21 @@ function ProfileCard({ isMine, userAddress }) {
 
   useEffect(() => {
     if(userAddress) {
-      checkProfile(userAddress)
+      window.alert("No user logged In ")
+      router.push('/')
     }
+    checkProfile(userAddress)
   }, [userAddress])
 
   const disconnectAccount = () => {
     disconnect()
-    Router.push('/')
+    router.push('/')
   }
 
   return (
     <div className={styles.profile}>
       <div className={styles.container}>
-        <img className={styles.coverPicture} src='https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg' alt='cover'/>
+        <img className={styles.coverPicture} src='https://static.vecteezy.com/system/resources/thumbnails/004/288/148/small/sale-banner-poster-flyer-design-with-pattern-on-dark-black-canvas-and-grunge-texture-background-modern-design-backdrop-template-for-advertisement-social-and-fashion-ads-free-vector.jpg' alt='cover'/>
         <Avatar className={styles.picture} src={user?.profile}/>
         <div className={styles.info}>
           <h3>{user?.handle}</h3>

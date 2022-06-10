@@ -1,4 +1,3 @@
-
 export const CREATE_PROFILE = `
   mutation($request: CreateProfileRequest!) { 
     createProfile(request: $request) {
@@ -12,7 +11,6 @@ export const CREATE_PROFILE = `
     }
  }
 `  
-//ownedBy:["0x8bEdd25C40872b18EAc853E9ee221F42804e3b72"], limit:14
 export const GET_PROFILES = (address) =>  `
 query Profiles {
   profiles(request: { ownedBy: ["${address}"], limit: 2 }) {
