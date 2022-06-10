@@ -6,7 +6,7 @@ import ProfileSearchCard from '../components/ProfileSearchCard'
 
 function Widget() {
 
-    const [searchInput, setSearchInput] = useState('')
+    const [searchInput, setSearchInput] = useState('jo')
     const [searchResult, setSearchResult] = useState([])
 
     const fetchProfiles = async() => {

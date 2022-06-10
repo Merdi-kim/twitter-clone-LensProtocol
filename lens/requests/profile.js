@@ -20,6 +20,7 @@ export const getProfiles = (address) => {
 
 export const searchForProfile = (searchInput) => {
   const searchQuery = SEARCH_FOR_PROFILE(searchInput)
+  console.log(searchQuery)
   return apolloClient.query({
     query: gql(searchQuery),
   })
