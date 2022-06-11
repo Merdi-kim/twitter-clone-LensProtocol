@@ -3,7 +3,7 @@ import Router from 'next/router';
 import { useAccount, useSigner } from 'wagmi'
 import { Web3Storage } from 'web3.storage';
 import { generateChallenge, authenticate, createProfile } from '../../lib/lens/requests/profile'
-import styles from '../styles/Signin.module.css'
+import styles from '../../styles/Signin.module.css'
 
 const Signin = () => {
 
