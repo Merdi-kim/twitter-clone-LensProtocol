@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import SuggestionCard from '../components/SuggestionCard'
-import { recommendedProfiles } from '../lens/requests/profile'
+import SuggestionCard from '../../components/SuggestionCard'
+import { recommendedProfiles } from '../../lib/lens/requests/profile'
 
-function Suggested() {
+const Suggested = () => {
 
   const [recommendedUsers, setRecommendedUsers] = useState([])
 

@@ -5,11 +5,12 @@
     align-items: center;
     justify-content: center;
     background-color: lightgray;
+    text-align: center;
 }
 
 .container {
     width: 40vw;
-    height: 60vh;
+    height: 70vh;
     border: 1px solid gray;
     border-radius: 12px;
     position: relative;
@@ -44,11 +45,11 @@
 }
 
 .picture {
-    height: 32% !important;
-    width: 30% !important;
+    height: 13rem !important;
+    width: 13rem !important;
     position: absolute !important;
-    left: 35% !important;
-    top: 25% !important;
+    left: calc(50% - 6.5rem) !important;
+    top: 15% !important;
     border: 2px solid var(--twitter-color) !important;
 }
 
@@ -82,20 +83,8 @@
     }
 }
 
-@media  screen and (max-width:760px) {
-    .picture {
-        width: 22vw;
-        left: 32%;
-    }
-}
-
 @media  screen and (max-width:590px) {
     .container {
         width: 90vw;
-    }
-
-    .picture {
-        width: 30vw;
-        left: 34%;
     }
 }

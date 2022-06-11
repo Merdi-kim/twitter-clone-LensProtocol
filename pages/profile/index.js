@@ -1,7 +1,7 @@
 import { useAccount} from 'wagmi'
-import ProfileCard from '../components/ProfileCard'
+import ProfileCard from '../../components/ProfileCard'
 
-function Profile() {
+const MyProfile = () => {
 
   const { data } = useAccount()
 
@@ -10,4 +10,4 @@ function Profile() {
   )
 }
 
-export default Profile
+export default MyProfile

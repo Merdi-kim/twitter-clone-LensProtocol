@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
-import { checkProfile } from '../helpers/checkProfile'
+import { checkProfile } from '../lib/helpers/checkProfile'
 import { useAccount , useSigner} from 'wagmi'
 import { Web3Storage } from 'web3.storage'
 import { Avatar, Button } from '@mui/material'
-import { createPost } from '../lens/requests/tweet'
-import { generateChallenge, authenticate } from '../lens/requests/profile'
+import { createPost } from '../lib/lens/requests/tweet'
+import { generateChallenge, authenticate } from '../lib/lens/requests/profile'
 import styles from '../styles/TweetModal.module.css'
 
-function TweetModal() {
+const TweetModal = ({ refetchPosts}) => {
 
   const [user, setUser] = useState({
     id:'',
@@ -21,23 +21,24 @@ function TweetModal() {
   const web3storage = new Web3Storage({token:storageKey})
 
   const fetchData = async() => {
+    if(!userData?.address) return
     const {id, picture} = await checkProfile(userData?.address)
     setUser({...user, id, profile:picture?.original?.url})
   }
 
   useEffect(() => {
-    if(userData?.address) fetchData()
+    fetchData()
   }, [userData?.address])
 
   const createTweet = async(e) => {
     e.preventDefault()
-    if(!tweetText && tweetFile == null || !userAddress) {
-      return console.log('no data')
+    if(!tweetText && tweetFile == null || !userData) {
+      return window.alert("No data filled or you're not logged in ")
     }
 
-    const challengeResponse = await generateChallenge(userAddress?.address);
+    const challengeResponse = await generateChallenge(userData?.address);
     const signature = await signer.signMessage(challengeResponse.data.challenge.text)
-    const {data} = await authenticate(userAddress?.address, signature);
+    const {data} = await authenticate(userData?.address, signature);
     const localStorage = window.localStorage
     localStorage.setItem('auth_token', data.authenticate.accessToken)
     const blob = new Blob([JSON.stringify({tweetText})], { type: 'application/json' })
@@ -56,14 +57,14 @@ function TweetModal() {
       }
     };
     await createPost(createPostRequest)
-    window.location.reload()
+    refetchPosts(state => !state)
   }
 
   return (
     <div className={styles.tweetModal}>
       <form onSubmit={createTweet}>
         <div className={styles.input}>
-          <Avatar src={user.profile}/>
+          <Avatar src={user?.profile}/>
           <textarea placeholder="What's happening?" onChange= {(e) => setTweetText(e.target.value)}/>
         </div>
 

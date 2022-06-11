@@ -1,8 +1,8 @@
-import { goToProfile } from '../helpers/goToProfile'
+import { goToProfile } from '../lib/helpers/goToProfile'
 import { Avatar } from '@mui/material'
 import styles from '../styles/ProfileSearchCard.module.css'
 
-function ProfileSearchCard({src, handle, ownedBy}) {
+const ProfileSearchCard = ({src, handle, ownedBy}) => {
   return (
     <div className={styles.card} onClick={() => goToProfile(ownedBy)}>
       <Avatar src={src}/>

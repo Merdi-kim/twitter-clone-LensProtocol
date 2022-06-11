@@ -12,13 +12,13 @@
 }
 
 .icon {
-    padding: 0px 20px;
+    margin-right:10px !important;
 }
 
 
 .sidebarOption  h2 {
-    font-weight: 700;
-    font-size: 20px;
+    font-weight: 550;
+    font-size: 18px;
 }
 
 .active {

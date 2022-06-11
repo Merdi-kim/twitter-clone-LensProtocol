@@ -4,11 +4,11 @@ import RepeatIcon from '@mui/icons-material/Repeat'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import PublishIcon from '@mui/icons-material/Publish'
 import styles from '../styles/Tweet.module.css'
-import { goToProfile} from '../helpers/goToProfile'
+import { goToProfile} from '../lib/helpers/goToProfile'
 
 
 
-function Tweet({displayName, username, stats, text, avatar, ownedBy, image}) {
+const Tweet = ({displayName, username, stats, text, avatar, ownedBy, image}) => {
 
     return (
         <div className={styles.tweet}>
@@ -27,7 +27,7 @@ function Tweet({displayName, username, stats, text, avatar, ownedBy, image}) {
                         </div>
                     </div>
                 </div>
-                <img src={image} alt="" />
+                <img src={image} alt="tweet image" />
                 <div className={styles.footer}>
                   <section><ChatBubbleOutlineIcon fontSize='small'/> <span>{stats.totalAmountOfComments}</span> </section>
                    <section><RepeatIcon fontSize='small'/> <span>{stats.totalAmountOfMirrors}</span></section>

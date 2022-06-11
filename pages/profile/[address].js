@@ -1,7 +1,7 @@
 import { useRouter } from 'next/dist/client/router'
 import ProfileCard from '../../components/ProfileCard'
 
-function Profile() {
+const Profile = () => {
 
   const router = useRouter()
   const {ownedBy} = router.query

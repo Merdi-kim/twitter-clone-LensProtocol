@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react'
 import router from 'next/router'
 import { useDisconnect } from 'wagmi'
 import { Avatar } from '@mui/material'
-import { getProfiles } from '../lens/requests/profile'
+import { getProfiles } from '../lib/lens/requests/profile'
 import styles from '../styles/Profile.module.css'
 
-function ProfileCard({ isMine, userAddress }) {
+const ProfileCard = ({ isMine, userAddress }) => {
 
   const [user, setUser] = useState({
     profile:'',

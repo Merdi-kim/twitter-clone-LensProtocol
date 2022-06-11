@@ -1,11 +1,11 @@
-import { goToProfile } from '../helpers/goToProfile'
+import { goToProfile } from '../lib/helpers/goToProfile'
 import styles from '../styles/SuggestionCard.module.css'
 
-function SuggestionCard({src, ownedBy}) {
+const SuggestionCard = ({src, ownedBy}) => {
 
   return (
     <div className={styles.card}>
-      <img src={src} alt=""  onClick={() => goToProfile(ownedBy) }/>
+      <img src={src} alt='suggested user'  onClick={() => goToProfile(ownedBy) }/>
     </div>
     
   )

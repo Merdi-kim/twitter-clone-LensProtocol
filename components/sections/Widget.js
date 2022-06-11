@@ -1,35 +1,29 @@
 import { useState, useEffect } from 'react'
-import { searchForProfile } from '../lens/requests/profile'
+import { searchForProfile } from '../../lib/lens/requests/profile'
 import SearchIcon from '@mui/icons-material/Search'
-import styles from '../styles/Widget.module.css'
-import ProfileSearchCard from '../components/ProfileSearchCard'
+import styles from '../../styles/Widget.module.css'
+import ProfileSearchCard from '../ProfileSearchCard'
 
-function Widget() {
+const Widget = () => {
 
-    const [searchInput, setSearchInput] = useState('jo')
+    const [searchInput, setSearchInput] = useState('')
     const [searchResult, setSearchResult] = useState([])
 
     const fetchProfiles = async() => {
-        const { data } = await searchForProfile(searchInput)
+        const query = searchInput || 'jo'
+        const { data } = await searchForProfile(query)
         setSearchResult(data.search.items)
-    }
-
-    const searchProfile = async(e) => {
-        e.preventDefault()
-        if(!searchInput) return
-       fetchProfiles()
     }
 
     useEffect(() => {
         fetchProfiles()
-    }, [])
+    }, [searchInput])
     return (
         <div className={styles.widget}>
-            <form className={styles.input} onSubmit={searchProfile}>
+            <div className={styles.input}>
                 <SearchIcon className={styles.searchIcon}/>
                 <input type="text" onChange={(e) => setSearchInput(e.target.value)} placeholder='Search twitter...' />
-                <button type="submit" hidden></button>
-            </form>
+            </div>
 
             <div className={styles.widgetContainer}>
                 { searchResult.length !== 0 ? searchResult?.map(({handle, picture, ownedBy}) => <ProfileSearchCard src={picture?.original.url} handle={handle} ownedBy={ownedBy}/>) : <p>No match</p> }  

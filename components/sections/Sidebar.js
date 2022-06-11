@@ -1,4 +1,4 @@
-import SidebarOption from '../components/SidebarOption'
+import SidebarOption from '../SidebarOption'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import HomeIcon from '@mui/icons-material/Home'
 import TagIcon from '@mui/icons-material/Tag';
@@ -9,9 +9,9 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import styles from '../styles/Sidebar.module.css'
+import styles from '../..//styles/Sidebar.module.css'
 
-function Sidebar() {
+const Sidebar = () => {
 
     return (
         <div className={styles.sidebar}>

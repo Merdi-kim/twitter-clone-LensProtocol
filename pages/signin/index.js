@@ -2,10 +2,10 @@ import { useState } from 'react'
 import Router from 'next/router';
 import { useAccount, useSigner } from 'wagmi'
 import { Web3Storage } from 'web3.storage';
-import { generateChallenge, authenticate, createProfile } from '../lens/requests/profile'
+import { generateChallenge, authenticate, createProfile } from '../../lib/lens/requests/profile'
 import styles from '../styles/Signin.module.css'
 
-function Signin() {
+const Signin = () => {
 
   const [userName, setUserName] = useState('')
   const [fileUrl, setFileUrl] = useState('')
@@ -54,7 +54,7 @@ function Signin() {
       <form onSubmit={createProfile}>
         <input placeholder='Username...' type="text" onChange={(e) => setUserName(e.target.value)} />
         <input type="file" onChange={uploadImage} accept='image/*' />
-        { fileUrl && <img src={fileUrl} alt="" />}
+        { fileUrl && <img src={fileUrl} alt={userName} />}
         <button type='submit'>submit</button> 
       </form>
     </div>
