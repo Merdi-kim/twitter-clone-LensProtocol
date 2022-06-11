@@ -15,7 +15,7 @@ const Signin = () => {
   const {data : accountData} = useAccount()
   const { data : signer } = useSigner()
 
-  const createProfile = async(e) => {
+  const createUser = async(e) => {
     e.preventDefault()
     if(file.length === 0 && !userName) return 
     try {
@@ -43,6 +43,7 @@ const Signin = () => {
 
   const uploadImage = (e) => {
     e.preventDefault()
+    if(e.target.files.length == 0) return setFileUrl('')
     const url = URL.createObjectURL(e.target.files[0])
     setFileUrl(url)
     setFile(e.target.files)
@@ -51,7 +52,7 @@ const Signin = () => {
 
   return (
     <div className={styles.new_account}>
-      <form onSubmit={createProfile}>
+      <form onSubmit={createUser}>
         <input placeholder='Username...' type="text" onChange={(e) => setUserName(e.target.value)} />
         <input type="file" onChange={uploadImage} accept='image/*' />
         { fileUrl && <img src={fileUrl} alt={userName} />}

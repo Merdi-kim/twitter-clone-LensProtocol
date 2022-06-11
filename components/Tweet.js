@@ -27,7 +27,7 @@ const Tweet = ({displayName, username, stats, text, avatar, ownedBy, image}) => 
                         </div>
                     </div>
                 </div>
-                <img src={image} alt="tweet image" />
+                {/*<img src={image} alt="tweet image" />*/}
                 <div className={styles.footer}>
                   <section><ChatBubbleOutlineIcon fontSize='small'/> <span>{stats.totalAmountOfComments}</span> </section>
                    <section><RepeatIcon fontSize='small'/> <span>{stats.totalAmountOfMirrors}</span></section>

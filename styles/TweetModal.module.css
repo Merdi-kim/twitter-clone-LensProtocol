@@ -22,6 +22,19 @@
     font-size: 20px;
 }
 
+.tweetImage {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tweetImage>img {
+    width: 90%;
+    height: 100%;
+    background-color: red;
+    border-radius: 12px;
+}
+
 .bottom {
     display: flex;
     align-items: center;

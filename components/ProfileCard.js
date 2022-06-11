@@ -22,7 +22,6 @@ const ProfileCard = ({ isMine, userAddress }) => {
 
   useEffect(() => {
     if(!userAddress) {
-      window.alert("No user logged In ")
       router.push('/')
     }
     checkProfile(userAddress)
@@ -30,7 +29,6 @@ const ProfileCard = ({ isMine, userAddress }) => {
 
   const disconnectAccount = () => {
     disconnect()
-    router.push('/')
   }
 
   return (

@@ -15,6 +15,7 @@ const TweetModal = ({ refetchPosts}) => {
   })
   const [tweetText, setTweetText] = useState('')
   const [tweetFile, setTweetFile] = useState(null)
+  const [tweetFilePreview, setTweetFilePreview] = useState('')
   const { data:userData} = useAccount()
   const { data : signer } = useSigner()
   const storageKey = process.env.NEXT_PUBLIC_STORAGE_KEY
@@ -29,6 +30,14 @@ const TweetModal = ({ refetchPosts}) => {
   useEffect(() => {
     fetchData()
   }, [userData?.address])
+
+  const previewTweetImage = (e) => {
+    const file = e.target.files[0]
+    if(!file) return setTweetFilePreview('')
+    const tweetImageUrl = URL.createObjectURL(file)
+    setTweetFile(file)
+    setTweetFilePreview(tweetImageUrl)
+  }
 
   const createTweet = async(e) => {
     e.preventDefault()
@@ -67,12 +76,14 @@ const TweetModal = ({ refetchPosts}) => {
           <Avatar src={user?.profile}/>
           <textarea placeholder="What's happening?" onChange= {(e) => setTweetText(e.target.value)}/>
         </div>
-
+        { tweetFilePreview && <div className={styles.tweetImage}>
+          <img src={tweetFilePreview} alt="tweet image"  />
+        </div>}
         <section className={styles.bottom}>
         <input 
           type="file" 
           className={styles.inputImage}
-          onChange= {(e) => setTweetFile(e.target.files)}
+          onChange= {previewTweetImage}
         />
         <Button className={styles.tweetButton} type='submit' >Tweet</Button>
         </section>
