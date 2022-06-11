@@ -26,7 +26,7 @@ const Widget = () => {
             </div>
 
             <div className={styles.widgetContainer}>
-                { searchResult.length !== 0 ? searchResult?.map(({handle, picture, ownedBy}) => <ProfileSearchCard src={picture?.original.url} handle={handle} ownedBy={ownedBy}/>) : <p>No match</p> }  
+                { searchResult.length !== 0 ? searchResult?.map(({handle, picture, ownedBy}) => <ProfileSearchCard key={handle} src={picture?.original.url} handle={handle} ownedBy={ownedBy}/>) : <p>No match</p> }  
             </div>
 
             
