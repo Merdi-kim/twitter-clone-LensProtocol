@@ -18,4 +18,4 @@ Inside that file, set your storage key like this `NEXT_PUBLIC_STORAGE_KEY= `.
 
 Now you can start to make changes to this project and I'll be more than happy to see your PRs. 
 
-Happy coding ! 💻
+Happy coding! 💻
