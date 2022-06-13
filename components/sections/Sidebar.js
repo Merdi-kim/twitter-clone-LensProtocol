@@ -9,7 +9,7 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import styles from '../..//styles/Sidebar.module.css'
+import styles from '../../styles/Sidebar.module.css'
 
 const Sidebar = () => {
 

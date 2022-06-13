@@ -1,5 +1,6 @@
-import { goToProfile } from '../lib/helpers/goToProfile'
 import { Avatar } from '@mui/material'
+import { goToProfile } from '../lib/helpers/goToProfile'
+
 import styles from '../styles/ProfileSearchCard.module.css'
 
 const ProfileSearchCard = ({src, handle, ownedBy}) => {

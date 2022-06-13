@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { searchForProfile } from '../../lib/lens/requests/profile'
 import SearchIcon from '@mui/icons-material/Search'
-import styles from '../../styles/Widget.module.css'
 import ProfileSearchCard from '../ProfileSearchCard'
+import styles from '../../styles/Widget.module.css'
 
 const Widget = () => {
 
