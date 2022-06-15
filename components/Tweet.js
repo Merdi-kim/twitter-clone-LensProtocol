@@ -21,7 +21,7 @@ const Tweet = ({displayName, username, stats, text, avatar, ownedBy, image}) => 
                 <div className={styles.header}>
                     <div className={styles.headerText}>
                         <h3>
-                            {displayName} {""} <span className={styles.headerSpecial}>@{username}</span> 
+                            {displayName} <span className={styles.headerSpecial}>@{username}</span> 
                         </h3>
                         <div className={styles.headerDescription}>
                             <p>{text}</p>
