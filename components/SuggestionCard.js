@@ -5,7 +5,7 @@ const SuggestionCard = ({src, ownedBy}) => {
 
   return (
     <div className={styles.card}>
-                 <img src={src} alt='suggested user'  onClick={() => goToProfile(ownedBy) }/>
+                    <img src={src} alt='suggested user'  onClick={() => goToProfile(ownedBy) }/>
     </div>
     
   )
