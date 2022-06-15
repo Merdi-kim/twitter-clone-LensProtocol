@@ -1,45 +1,44 @@
 .widget {
-    flex: 0.3;
+  flex: 0.3;
 }
 
 .input {
-    display: flex;
-    align-items: center;
-    background-color: var(--twitter-background);
-    padding: 10px;
-    border-radius: 20px;
-    margin-top: 10px;
-    margin-left: 20px;
+  display: flex;
+  align-items: center;
+  background-color: var(--twitter-background);
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
 .input > input {
-    border: none;
-    outline: none;
-    background-color: var(--twitter-background);
-
+  border: none;
+  outline: none;
+  background-color: var(--twitter-background);
 }
 
 .searchIcon {
-    color: gray;
+  color: gray;
 }
 .widgetContainer {
-    height: calc(100% - 100px);
-    overflow: scroll;
-    margin-top: 30px;
-    margin-left: 20px;
-    border-radius: 20px;
+  height: calc(100% - 100px);
+  overflow: scroll;
+  margin-top: 30px;
+  margin-left: 20px;
+  border-radius: 20px;
 }
 .widgetContainer::-webkit-scrollbar {
-    width: 0;
+  width: 0;
 }
 
 .widgetContainer > h2 {
-    font-size: 18px;
-    font-weight: 800;
+  font-size: 18px;
+  font-weight: 800;
 }
 
-@media screen and (max-width:1024px) {
-    .widget {
-        display: none;
-    }
+@media screen and (max-width: 1024px) {
+  .widget {
+    display: none;
+  }
 }

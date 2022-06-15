@@ -1,80 +1,80 @@
 .tweetModal {
-    padding-bottom: 10px;
-    border-bottom: 8px solid var(--twitter-background);
-    padding-right: 10px;
+  padding-bottom: 10px;
+  border-bottom: 8px solid var(--twitter-background);
+  padding-right: 10px;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .input {
-    padding: 20px;
-    display: flex;
+  padding: 20px;
+  display: flex;
 }
 
 .input > textarea {
-    outline: none;
-    border: none;
-    flex: 1;
-    margin-left: 20px;
-    font-size: 20px;
+  outline: none;
+  border: none;
+  flex: 1;
+  margin-left: 20px;
+  font-size: 20px;
 }
 
 .tweetImage {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.tweetImage>img {
-    width: 90%;
-    height: 100%;
-    background-color: red;
-    border-radius: 12px;
+.tweetImage > img {
+  width: 90%;
+  height: 100%;
+  background-color: red;
+  border-radius: 12px;
 }
 
 .bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
 }
 
 .inputImage::-webkit-file-upload-button {
-    visibility: hidden;
-    flex: 0.4;
-    border: none;
-    padding: 20px;
-    opacity: 0;
+  visibility: hidden;
+  flex: 0.4;
+  border: none;
+  padding: 20px;
+  opacity: 0;
 }
 
 .inputImage::before {
-    content: 'Add image';
-    display: inline-block;
-    background: var(--twitter-background);
-    border: 1px solid rgb(218, 217, 217);
-    border-radius: 3px;
-    padding: 5px 8px;
-    outline: none;
-    white-space: nowrap;
-    -webkit-user-select: none;
-    cursor: pointer;
-    text-shadow: 1px 1px #fff;
-    font-weight: 700;
-    font-size: 10pt;
-  }
+  content: "Add image";
+  display: inline-block;
+  background: var(--twitter-background);
+  border: 1px solid rgb(218, 217, 217);
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
 
 .tweetButton {
-    flex: 0.3;
-    background-color: var(--twitter-color) !important;
-    border: none !important;
-    color: white !important;
-    font-weight: 900 !important;
-    text-transform: inherit !important;
-    border-radius: 30px !important;
-    height: 50px !important;
-    margin-top: 20px !important; 
-    margin-left: auto !important;
+  flex: 0.3;
+  background-color: var(--twitter-color) !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 900 !important;
+  text-transform: inherit !important;
+  border-radius: 30px !important;
+  height: 50px !important;
+  margin-top: 20px !important;
+  margin-left: auto !important;
 }

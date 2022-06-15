@@ -1,13 +1,10 @@
-import { useAccount} from 'wagmi'
-import ProfileCard from '../../components/ProfileCard'
+import { useAccount } from "wagmi";
+import ProfileCard from "../../components/ProfileCard";
 
 const MyProfile = () => {
+  const { data } = useAccount();
 
-  const { data } = useAccount()
+  return <ProfileCard userAddress={data?.address} isMine />;
+};
 
-  return (
-    <ProfileCard userAddress={data?.address} isMine/>
-  )
-}
-
-export default MyProfile
+export default MyProfile;

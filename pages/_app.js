@@ -1,29 +1,24 @@
-import { configureChains, WagmiConfig, createClient, chain} from 'wagmi'
-import { alchemyProvider } from 'wagmi/providers/alchemy'
-import {
-  RainbowKitProvider,
-  getDefaultWallets
+import { configureChains, WagmiConfig, createClient, chain } from "wagmi";
+import { alchemyProvider } from "wagmi/providers/alchemy";
+import { RainbowKitProvider, getDefaultWallets } from "@rainbow-me/rainbowkit";
+import "../styles/globals.css";
+import "@rainbow-me/rainbowkit/styles.css";
 
-} from '@rainbow-me/rainbowkit'
-import '../styles/globals.css'
-import '@rainbow-me/rainbowkit/styles.css';
-
-const { provider, chains} = configureChains(
+const { provider, chains } = configureChains(
   [chain.polygonMumbai],
-  [alchemyProvider({alchemyId:process.env.ALCHEMY_ID})]
-)
+  [alchemyProvider({ alchemyId: process.env.ALCHEMY_ID })]
+);
 
 const { connectors } = getDefaultWallets({
-  appName:"Twitter",
-  chains
-})
+  appName: "Twitter",
+  chains,
+});
 
 const client = createClient({
-  autoConnect:true,
+  autoConnect: true,
   connectors,
-  provider
-
-})
+  provider,
+});
 
 const MyApp = ({ Component, pageProps }) => {
   return (
@@ -32,7 +27,7 @@ const MyApp = ({ Component, pageProps }) => {
         <Component {...pageProps} />
       </RainbowKitProvider>
     </WagmiConfig>
-  )
-}
+  );
+};
 
-export default MyApp
+export default MyApp;

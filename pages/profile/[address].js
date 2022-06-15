@@ -1,14 +1,11 @@
-import { useRouter } from 'next/dist/client/router'
-import ProfileCard from '../../components/ProfileCard'
+import { useRouter } from "next/dist/client/router";
+import ProfileCard from "../../components/ProfileCard";
 
 const Profile = () => {
+  const router = useRouter();
+  const { ownedBy } = router.query;
 
-  const router = useRouter()
-  const {ownedBy} = router.query
+  return <ProfileCard userAddress={ownedBy} />;
+};
 
-  return (
-    <ProfileCard userAddress={ownedBy}/>
-  )
-}
-
-export default Profile
+export default Profile;

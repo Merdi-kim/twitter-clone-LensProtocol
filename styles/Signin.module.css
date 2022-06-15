@@ -1,63 +1,64 @@
 .new_account {
-    height: 100vh;
-    width: 100%;
-    background-color: var(--twitter-background);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--twitter-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.new_account>form {
-    height: auto;
-    width: 30vw;
-    background-color: var(--twitter-color);
-    border-radius: 9px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 20px;
-    padding-bottom: 20px;
+.new_account > form {
+  height: auto;
+  width: 30vw;
+  background-color: var(--twitter-color);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-.new_account>form>input, .new_account>form>textarea {
-    width: 90%;
-    margin-bottom: 1.5rem;
-    border-radius: 9px;
-    border: none;
-    outline: none;
-    padding: 10px 20px;
+.new_account > form > input,
+.new_account > form > textarea {
+  width: 90%;
+  margin-bottom: 1.5rem;
+  border-radius: 9px;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
 }
 
-.new_account>form>input[type='file'] {
-    background-color: white;
+.new_account > form > input[type="file"] {
+  background-color: white;
 }
 
-.new_account>form>button {
-    width: 45%;
-    border-radius: 9px;
-    height: 2rem;
-    margin-top: 1rem;
+.new_account > form > button {
+  width: 45%;
+  border-radius: 9px;
+  height: 2rem;
+  margin-top: 1rem;
 }
 
-.new_account>form img {
-    width: 90%;
-    border-radius: 12px;
+.new_account > form img {
+  width: 90%;
+  border-radius: 12px;
 }
 
-@media screen and (max-width: 1024px){
-    .new_account>form {
-        width: 45vw;
-    }
+@media screen and (max-width: 1024px) {
+  .new_account > form {
+    width: 45vw;
+  }
 }
 
-@media screen and (max-width: 1024px){
-    .new_account>form {
-        width: 65vw;
-    }
+@media screen and (max-width: 1024px) {
+  .new_account > form {
+    width: 65vw;
+  }
 }
 
-@media screen and (max-width: 485px){
-    .new_account>form {
-        width: 90vw;
-    }
+@media screen and (max-width: 485px) {
+  .new_account > form {
+    width: 90vw;
+  }
 }

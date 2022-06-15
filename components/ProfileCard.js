@@ -1,41 +1,44 @@
-import { useState, useEffect } from 'react'
-import router from 'next/router'
-import { useDisconnect } from 'wagmi'
-import { Avatar } from '@mui/material'
-import { getProfiles } from '../lib/lens/requests/profile'
-import styles from '../styles/Profile.module.css'
+import { useState, useEffect } from "react";
+import router from "next/router";
+import { useDisconnect } from "wagmi";
+import { Avatar } from "@mui/material";
+import { getProfiles } from "../lib/lens/requests/profile";
+import styles from "../styles/Profile.module.css";
 
 const ProfileCard = ({ isMine, userAddress }) => {
-
   const [user, setUser] = useState({
-    profile:'',
-    handle:'',
-    stats:null
-  })
-  const { disconnect } = useDisconnect()
+    profile: "",
+    handle: "",
+    stats: null,
+  });
+  const { disconnect } = useDisconnect();
 
-  const checkProfile = async(userAddress) => {
-    const { data } = await getProfiles(userAddress)
-    const {handle, picture, stats} = data?.profiles?.items[0] 
-    setUser({...user, handle, profile:picture?.original?.url, stats})
-  }
+  const checkProfile = async (userAddress) => {
+    const { data } = await getProfiles(userAddress);
+    const { handle, picture, stats } = data?.profiles?.items[0];
+    setUser({ ...user, handle, profile: picture?.original?.url, stats });
+  };
 
   useEffect(() => {
-    if(!userAddress) {
-      router.push('/')
+    if (!userAddress) {
+      router.push("/");
     }
-    checkProfile(userAddress)
-  }, [userAddress])
+    checkProfile(userAddress);
+  }, [userAddress]);
 
   const disconnectAccount = () => {
-    disconnect()
-  }
+    disconnect();
+  };
 
   return (
     <div className={styles.profile}>
       <div className={styles.container}>
-        <img className={styles.coverPicture} src='https://static.vecteezy.com/system/resources/thumbnails/004/288/148/small/sale-banner-poster-flyer-design-with-pattern-on-dark-black-canvas-and-grunge-texture-background-modern-design-backdrop-template-for-advertisement-social-and-fashion-ads-free-vector.jpg' alt='cover'/>
-        <Avatar className={styles.picture} src={user?.profile}/>
+        <img
+          className={styles.coverPicture}
+          src="https://static.vecteezy.com/system/resources/thumbnails/004/288/148/small/sale-banner-poster-flyer-design-with-pattern-on-dark-black-canvas-and-grunge-texture-background-modern-design-backdrop-template-for-advertisement-social-and-fashion-ads-free-vector.jpg"
+          alt="cover"
+        />
+        <Avatar className={styles.picture} src={user?.profile} />
         <div className={styles.info}>
           <h3>{user?.handle}</h3>
           <div className={styles.stats}>
@@ -53,10 +56,14 @@ const ProfileCard = ({ isMine, userAddress }) => {
             </section>
           </div>
         </div>
-        { isMine && <button className="disconnect" onClick={disconnectAccount}>Logout</button> }
+        {isMine && (
+          <button className="disconnect" onClick={disconnectAccount}>
+            Logout
+          </button>
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProfileCard
+export default ProfileCard;

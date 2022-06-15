@@ -1,90 +1,90 @@
 .profile {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: lightgray;
-    text-align: center;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+  text-align: center;
 }
 
 .container {
-    width: 40vw;
-    height: 70vh;
-    border: 1px solid gray;
-    border-radius: 12px;
-    position: relative;
-    overflow: hidden;
-    background-color: white;
-    text-align: center;
+  width: 40vw;
+  height: 70vh;
+  border: 1px solid gray;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+  text-align: center;
 }
 
-.container>button {
-    width: 60%;
-    left: 20%;
-    height: 2rem;
-    color: rgb(224, 7, 7);
-    background-color: rgb(248, 209, 209);
-    font-weight: 800;
-    position: absolute;
-    bottom: 1.5rem;
-    border: none;
-    border-radius: 9px;
-    cursor: pointer;
+.container > button {
+  width: 60%;
+  left: 20%;
+  height: 2rem;
+  color: rgb(224, 7, 7);
+  background-color: rgb(248, 209, 209);
+  font-weight: 800;
+  position: absolute;
+  bottom: 1.5rem;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
 }
 
-.container>button:hover {
-    background-color: rgb(243, 88, 88);
-    color: white;
+.container > button:hover {
+  background-color: rgb(243, 88, 88);
+  color: white;
 }
 
 .coverPicture {
-    height: 40%;
-    width: 100%;
-    object-fit: cover;
+  height: 40%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .picture {
-    height: 13rem !important;
-    width: 13rem !important;
-    position: absolute !important;
-    left: calc(50% - 6.5rem) !important;
-    top: 15% !important;
-    border: 2px solid var(--twitter-color) !important;
+  height: 13rem !important;
+  width: 13rem !important;
+  position: absolute !important;
+  left: calc(50% - 6.5rem) !important;
+  top: 15% !important;
+  border: 2px solid var(--twitter-color) !important;
 }
 
 .info {
-    margin-top: 6rem;
+  margin-top: 6rem;
 }
 
 .stats {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 3rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 3rem;
 }
 
 .stat {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-@media  screen and (max-width:1080px) {
-    .container {
-        width: 50vw;
-    }
+@media screen and (max-width: 1080px) {
+  .container {
+    width: 50vw;
+  }
 }
 
-@media  screen and (max-width:960px) {
-    .container {
-        height: 60vh;
-        width: 60vw;
-    }
+@media screen and (max-width: 960px) {
+  .container {
+    height: 60vh;
+    width: 60vw;
+  }
 }
 
-@media  screen and (max-width:590px) {
-    .container {
-        width: 90vw;
-    }
+@media screen and (max-width: 590px) {
+  .container {
+    width: 90vw;
+  }
 }
