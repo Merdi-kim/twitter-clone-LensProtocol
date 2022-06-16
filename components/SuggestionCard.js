@@ -9,7 +9,6 @@ const SuggestionCard = ({ src, ownedBy }) => {
         alt="suggested user"
         onClick={() => goToProfile(ownedBy)}
       />
-          <img src="" alt="" />
     </div>
   );
 };
