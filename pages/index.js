@@ -19,7 +19,7 @@ const Home = () => {
       <div className={styles.home}>
         <Sidebar />
         <Feed />
-        <Widget />
+        {<Widget />}
       </div>
     </div>
   );

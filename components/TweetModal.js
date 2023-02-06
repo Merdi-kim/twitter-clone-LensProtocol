@@ -21,14 +21,14 @@ const TweetModal = ({ refetchPosts }) => {
   const web3storage = new Web3Storage({ token: storageKey });
 
   const fetchData = async () => {
-    if (!userData?.address) return;
-    const { id, picture } = await checkProfile(userData?.address);
-    setUser({ ...user, id, profile: picture?.original?.url });
+    //if (!userData?.address) return;
+    //const { id, picture } = await checkProfile(userData?.address);
+    //setUser({ ...user, id, profile: picture?.original?.url });
   };
 
   useEffect(() => {
     fetchData();
-  }, [userData?.address]);
+  }, [/*userData?.address*/]);
 
   const previewTweetImage = (e) => {
     const file = e.target.files[0];

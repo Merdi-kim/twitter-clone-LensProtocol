@@ -31,11 +31,11 @@ const Feed = () => {
             username={profile.handle}
             ownedBy={profile.ownedBy}
             text={metadata.content}
-            avatar={profile.picture.original.url}
+            avatar={profile.picture?.original.url}
             stats={stats}
           />
         ))}
-      </div>
+        </div>
     </div>
   );
 };
